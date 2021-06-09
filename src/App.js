@@ -1,21 +1,25 @@
 import "./App.css";
 import { Provider } from "react-redux";
+import { AnimatedSwitch } from 'react-router-transition-lirsoft';
 import store from "./Redux/redux-store";
-import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useState } from "react";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Dashboard from "./Components/Dashboard";
 import Staff from "./Components/Staff/Staff";
+import Alerts from "./Components/Alerts/Alerts";
+import Sequence from "./Components/Sequence/Sequence";
 
 export function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+
 function App() {
   const [sidebar, setSidebar] = useState(true);
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <div className="main-wrap overflow-hidden bg-gray-200">
           <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
           <div
@@ -23,22 +27,30 @@ function App() {
               sidebar
                 ? " ml-1/5  w-4/5 transform transition-spacing-width  duration-700"
                 : "w-full transform transition-spacing-width duration-700 ml-0",
-              "h-full "
+              "h-screen "
             )}
           >
-            <Switch>
-              <Route exact path="/home">
-                <Dashboard />
+           <AnimatedSwitch
+      atEnter={{ opacity: 0 }}
+      atLeave={{ opacity: 0 }}
+      atActive={{ opacity: 1 }}
+      className="switch-wrapper"
+    >
+              <Route path="/home" component={Dashboard}/>
+              <Route path="/staff" component={Staff}/>
+              <Route path="/alerts" component={Alerts} /> 
+              <Route path="/sequence" component={Sequence}/>
+              <Route exact path="/">
+                <Redirect to={"/home"}/>
               </Route>
-              <Route path="/staff">
-              <Staff />
+              <Route path="/">
+              404 Page Not Found
               </Route>
-              <Route path="/control"></Route>
-              <Route path="/userprofiles"></Route>
-            </Switch>
+              </AnimatedSwitch>
+            
           </div>
         </div>
-      </BrowserRouter>
+      </Router>
     </Provider>
   );
 }

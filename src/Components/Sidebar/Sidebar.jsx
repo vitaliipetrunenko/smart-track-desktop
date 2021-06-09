@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { classNames } from '../../App'
 import { NavLink } from "react-router-dom";
 import {ReactComponent as Icon1} from './../../iconMain.svg';
@@ -20,9 +20,9 @@ function Sidebar({sidebar,setSidebar}) {
     return (
         <div className={classNames(sidebar ? "transform  transition-transform duration-700  " : "z-10 transform -translate-x-full transition-transform duration-700 flex-shrink  " ,"absolute w-1/5   overflow-x-visible h-screen bg-blue-900 flex flex-col justify-between")}>
         
-        <div className="flex flex-col align-center text-center ">
+        <div className="flex flex-col align-center box-border text-center ">
         <div className="logo   pt-12  mx-auto pb-14 text-3xl text-white font-semibold">Logo</div>
-        <button className={classNames(sidebar ? " transform rotate-180 duration-700 border-l-2  ":"transform duration-700  border-l-0 opacity-95 ", " box-border relative w-12 h-12 border-b-2 border-t-2 border-r-2 border-white  bg-blue-white-split focus:outline-none  rounded-circular self-end left-6 bottom-10")} onClick={()=>setSidebar(!sidebar)}>
+        <button className={classNames(sidebar ? " transform rotate-180 duration-700 border-l-2  ":"transform duration-700  border-l-0 opacity-95 ", " box-border relative w-12 h-12 border-b-2 border-t-2 border-r-2 border-white  bg-blue-white-split outline-none focus:outline-none  rounded-circular self-end left-6 bottom-10")} onClick={()=>setSidebar(!sidebar)}>
             <IconArrow className={classNames(sidebar ? "left-6":"left-6" ,"w-5 h-5 transform -rotate-90 relative")} fill="white"/>
 
         </button>

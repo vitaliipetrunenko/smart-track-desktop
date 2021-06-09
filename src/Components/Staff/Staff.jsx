@@ -21,11 +21,12 @@ function loadProfiles(tab){
 function Staff() {
   const [tab, setTab] = useState("Doctors")
     const [loadedProfiles,setLoadedProfiles] = useState([])
+    const [toggleAddNewModal, setToggleAddNewModal] = useState(false)
     useEffect(()=>{
         setLoadedProfiles(loadProfiles(tab))
     },[tab])
     let shownProfiles = loadedProfiles.map((e,i)=>(
-        <div key={i} className="grid bg-white m-1 rounded-tl-3xl rounded-br-3xl  grid-cols-12  h-14 text-left"><span className=" bg-green-300 h-full rounded-tl-3xl w-9 flex justify-center items-center rounded-br-3xl col-span-1"><p>{i+1}</p></span><span className="col-span-2">{e.name}</span><span className="col-span-3" >{e.mail}</span><span className="col-span-3">{e.phone}</span><span className="col-span-3">{e.rooms}</span></div>
+        <div key={i} className="grid bg-white m-1 rounded-tl-3xl rounded-br-3xl  grid-cols-12  h-14 text-left"><span className=" bg-green-300 h-full rounded-tl-3xl w-9 flex justify-center items-center rounded-br-3xl col-span-1"><p>{i+1}</p></span><span className="col-span-2 flex items-center">{e.name}</span><span className="col-span-3 flex items-center" >{e.mail}</span><span className="col-span-3 flex items-center">{e.phone}</span><span className="col-span-3 flex items-center">{e.rooms}</span></div>
     ))
   return (
     <div className="w-full h-screen">
@@ -47,11 +48,13 @@ function Staff() {
             setTab={setTab}
           ></StaffButton>
         </div>
-        <button className="mr-16 px-10 py-3 bg-green-300 rounded-3xl">
+        <button onClick={()=>{setToggleAddNewModal(true)}} className="mr-16 px-10 py-3 bg-green-300 rounded-3xl">
           Add new
+          
         </button>
       </div>
       <div className="h-5/6 mx-10 flex flex-col justify-start">
+      {toggleAddNewModal ? <div className="fixed w-full z-50 h-screen top-0 left-0 bg-gray-500 bg-opacity-60 flex items-center"><div className="bg-white max-w-md w-2/6 rounded-3xl h-52 mx-auto"></div></div> : null}
      {shownProfiles}
      </div>
     </div>

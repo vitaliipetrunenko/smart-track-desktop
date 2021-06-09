@@ -13,11 +13,11 @@ export const mockDoctors = [
             currentState:"none"
         },{
             date:new Date(2005,1,1,11,15),
-            room:"1b",
+            room:"1c",
             currentState:"none"
         },{
             date:new Date(2005,1,1,12,33),
-            room:"1b",
+            room:"1d",
             currentState:"none"
         }]
     },

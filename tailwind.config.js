@@ -37,7 +37,7 @@ module.exports = {
        'megashadow': '0 35px 60px 1px rgba(0, 0, 0, 0.3)',
       },
       backgroundImage: theme =>({
-        "blue-white-split": "linear-gradient(to right, white, white 50%,  rgb(30, 58, 138) 50%, rgb(30, 58, 138))"
+        "blue-white-split": "linear-gradient(to right, rgba(0, 0, 0,0), rgba(0, 0, 0,0) 50%,  rgba(30, 58, 138,1) 50%, rgba(30, 58, 138,1))"
       }),
       gridColumn: {
         'span-0': 'span 0 / span 0',
