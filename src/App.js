@@ -14,7 +14,6 @@ export function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
 function App() {
   const [sidebar, setSidebar] = useState(true);
   return (
@@ -39,7 +38,9 @@ function App() {
               <Route path="/home" component={Dashboard}/>
               <Route path="/staff" component={Staff}/>
               <Route path="/alerts" component={Alerts} /> 
-              <Route path="/sequence" component={Sequence}/>
+              <Route path="/sequence">
+                <Sequence  sidebar={sidebar}/>
+                </Route>
               <Route exact path="/">
                 <Redirect to={"/home"}/>
               </Route>
@@ -47,12 +48,10 @@ function App() {
               404 Page Not Found
               </Route>
               </AnimatedSwitch>
-            
           </div>
         </div>
       </Router>
     </Provider>
   );
 }
-
 export default App;
