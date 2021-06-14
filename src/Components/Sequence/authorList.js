@@ -31,10 +31,12 @@ const DropZone = styled.div`
   min-width: 600px;
   /* stop the list collapsing when it has no items */
   min-height: 60px;
+  max-width: 100%;
+  flex-wrap: wrap;
 `;
 
 const ScrollContainer = styled.div`
-  overflow: auto;
+  max-width:100% ;
 `;
 
 // $ExpectError - not sure why
@@ -100,7 +102,7 @@ export default class AuthorList extends Component {
               listId === "alpha"
                 ? "border-2 border-green-300 border-dashed "
                 : "",
-              "bg-gray-100"
+              "bg-gray-100 flex-wrap max-w-full"
             )}
           >
             {internalScroll ? (
