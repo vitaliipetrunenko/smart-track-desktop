@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { colors } from "@atlaskit/theme";
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "aligned-rbd"; 
 import { ReactComponent as IconEdit } from "./../../iconEdit.svg";
 import { ReactComponent as IconCross } from "./../../iconCross.svg";
 import { classNames } from "../../App";
@@ -91,7 +91,7 @@ export default class AuthorList extends Component {
       <Droppable
         droppableId={listId}
         type={listType}
-        direction="horizontal"
+        direction="grid"
         isCombineEnabled={isCombineEnabled}
       >
         {(dropProvided, dropSnapshot) => (

@@ -19,7 +19,7 @@ const alpha = 'alpha';
 const beta = 'beta';
 
 const quoteMap = {
-    [alpha]: ["1b","1c","1d"],
+    [alpha]: ["1b","1c","1d","1g","1h","1i"],
     [beta]: ["1e","1f"],    
   };
 

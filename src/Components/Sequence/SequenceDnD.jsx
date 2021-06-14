@@ -1,7 +1,10 @@
 // @flow
 import React, { Component } from "react";
+import { DragDropContext } from "aligned-rbd"; 
+
+
 import styled from "styled-components";
-import { DragDropContext } from "react-beautiful-dnd";
+//import { DragDropContext } from "react-beautiful-dnd";
 import AuthorList from "./authorList";
 
 const grid = 8;
